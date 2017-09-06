@@ -8,7 +8,7 @@ public class MysqlConnector {
     //private static final - stałe, nie będą się zmieniać
     private static final String SQL_LINK = "jdbc:mysql://5.135.218.27:3306/xxx";
     private static final String SQL_USER = "xxx";
-    private static final String SQL_PASS = "xxxxxxxxxx";
+    private static final String SQL_PASS = "xxxxx";
     private static final String SQL_CLASS = "com.mysql.jdbc.Driver";
 
     //singleton
