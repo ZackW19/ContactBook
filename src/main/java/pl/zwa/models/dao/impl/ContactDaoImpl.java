@@ -42,6 +42,27 @@ public class ContactDaoImpl implements ContactDao {
         }
     }
 
+    @Override
+    public ContactModel getContactByNumber(String number) {
+        ContactModel model = null;
+        try {
+            PreparedStatement statement = mysqlConnector.getConnection().prepareStatement(
+                    "SELECT * FROM contact WHERE number = ?");
+                    statement.setString(1, number);
+
+                ResultSet set = statement.executeQuery();
+            while (set.next()){
+                model = new ContactModel(set.getString("number"),
+                        set.getString("name"),
+                        set.getString("lastname"));
+            }
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return model;
+    }
+
     public List<ContactModel> getAllContacts() {
         List<ContactModel> contactModels = new ArrayList<ContactModel>();
         try {
